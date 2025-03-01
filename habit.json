@@ -1,20 +1,18 @@
-{
-   "habits":[ {
-        "name" : "Moring Streching Routine",
-        "frequency" : "daily",
-        "start_date" : "2025-02-27",
-        "description" : "A quick 10-minute full-body stretching session.", 
-        "check_dates" : [
-            "2025-02-27"
-        ]
-    },
-
+[
     {
-        "name" : "Reading 20 Pages",
-        "frequency" : "daily",
-        "start_date" : "2025-02-01",
-        "description" :"Reading at least 20 pages to enhance knowledge.", 
-        "check_dates" : [
+        "name": "Moring Streching Routine",
+        "frequency": "daily",
+        "description": "A quick 10-minute full-body stretching session.",
+        "checkDates": [
+            "2025-02-27"
+        ],
+        "startDate": "2025-02-27"
+    },
+    {
+        "name": "Reading 20 Pages",
+        "frequency": "daily",
+        "description": "Reading at least 20 pages to enhance knowledge.",
+        "checkDates": [
             "2025-02-01",
             "2025-02-02",
             "2025-02-03",
@@ -23,29 +21,75 @@
             "2025-02-06",
             "2025-02-09",
             "2025-02-010"
-        ]
-
+        ],
+        "startDate": "2025-02-01"
     },
-
     {
-        "name" : "Evening Jouraling",
-        "frequency" : "daily",
-        "start_date" : "2025-02-20",
-        "description" : "Writing a few thoughts or reflections in a journal each evening.", 
-        "check_dates": [] 
+        "name": "Evening Jouraling",
+        "frequency": "daily",
+        "description": "Writing a few thoughts or reflections in a journal each evening.",
+        "checkDates": [],
+        "startDate": "2025-02-20"
     },
-
     {
-        "name" : "Weight training",
-        "frequency" : "weekly",
-        "start_date" : "2025-02-03",
-        "description" :"Doing weight traning once a week.", 
-        "check_dates" : [
+        "name": "Weight training",
+        "frequency": "weekly",
+        "description": "Doing weight traning once a week.",
+        "checkDates": [
             "2025-02-03",
             "2025-02-10",
             "2025-02-17",
             "2025-02-24"
-        ]
+        ],
+        "startDate": "2025-02-03"
+    },
+    {
+        "name": "test",
+        "frequency": "weekly",
+        "description": "testing",
+        "checkDates": [],
+        "startDate": "2025-03-01"
+    },
+    {
+        "name": "test",
+        "frequency": "weekly",
+        "description": "testing",
+        "checkDates": [],
+        "startDate": "2025-03-01"
+    },
+    {
+        "name": "test",
+        "frequency": "weekly",
+        "description": "testing",
+        "checkDates": [],
+        "startDate": "2025-03-01"
+    },
+    {
+        "name": "test",
+        "frequency": "weekly",
+        "description": "testing",
+        "checkDates": [],
+        "startDate": "2025-03-01"
+    },
+    {
+        "name": "Help",
+        "frequency": "weekly",
+        "description": "",
+        "checkDates": [],
+        "startDate": ""
+    },
+    {
+        "name": "Help",
+        "frequency": "weekly",
+        "description": "",
+        "checkDates": [],
+        "startDate": ""
+    },
+    {
+        "name": "Mein 1 Habit",
+        "frequency": "daily",
+        "description": "Cooles Habit",
+        "checkDates": [],
+        "startDate": "2025-03-01"
     }
-   ]
-}
+]
