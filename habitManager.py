@@ -39,7 +39,31 @@ class habitManager():
             if frequency == entry.frequency or frequency == "all":
                 click.secho(entry,fg="blue")
 
+    def changeHabitByName(self,name:str,frequency:str,description:str,startDate:datetime,newName,customDateFormat):
+        for entry in self.habits:
+            if entry.name == name:
+                if frequency != None:
+                    entry.setFrequency(frequency)
 
+                if description != None:
+                    entry.setDescription(description)
+
+                if startDate != None:
+                    entry.setStartDate(self.validateDate(startDate,customDateFormat))
+
+                if newName != None:
+                    entry.setName(newName)
+                self.storeHabits()
+                break
+
+
+    def storeHabits(self):
+        habitJsonData = []
+        for entry in self.habits:
+            habitJsonData.append(entry.asDict())
+        #print(habitJsonData)
+        with open(self.filePath,'w') as fp:
+            json.dump(habitJsonData,fp,indent =4)
 
     def createHabit(self,name:str, frequency:str, description:str, startDate:str):
         newHabit = habit(name,frequency,description,[],startDate)
@@ -51,14 +75,8 @@ class habitManager():
                 return 1
 
         self.habits.append(newHabit)
-
-        habitJsonData = []
-        for entry in self.habits:
-            habitJsonData.append(entry.asDict())
-        #print(habitJsonData)
-        with open(self.filePath,'w') as fp:
-            json.dump(habitJsonData,fp,indent =4)
-            click.secho("Habit added successfully!",fg="green")
+        self.storeHabits()
+        click.secho("Habit added successfully!",fg="green")
 
     def validateDate(self,date_string, date_format="%Y-%m-%d"):
         try:

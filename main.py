@@ -15,7 +15,6 @@ def habitShell():
 @habitShell.command()
 @click.option('-f','--frequency',required=False, default="all", show_default=True,type=click.Choice(["weekly","daily","all"],case_sensitive=False) ,help="Provide a Filter for the frequency of Habits to get.")
 def getHabits(frequency):
-    #rprint(frequency)
     manager.getHabits(frequency)
 
 @habitShell.command()
@@ -26,6 +25,16 @@ def getHabits(frequency):
 @click.option('--customDateFormat', required=False, default="%Y-%m-%d", help="Provide a Custom Date formate to add a Date (default: %Y-%m-%d)")
 def createHabit(name,frequency,description,startdate,customdateformat):
     manager.createHabit(name,frequency,description,manager.validateDate(startdate,customdateformat))
+
+@habitShell.command()
+@click.option('-n', '--name', required=True, help="Provide the Name for the habit to change.")
+@click.option('-f','--frequency',required=False, default=None, show_default=True,type=click.Choice(["weekly","daily"],case_sensitive=False) ,help="Change the frequency of the habit.")
+@click.option('-d', '--description', required=False, default=None, help="Change the description of the habit")
+@click.option('-s', '--startdate', required=False, default=None, help ="Change the start Date of the habit.")
+@click.option('-N', '--newName', required=False, default=None, help="Change the name of a Habit")
+@click.option('--customDateFormat', required=False, default="%Y-%m-%d", help="Provide a Custom Date formate to add a Date (default: %Y-%m-%d)")
+def changeHabit(name,frequency,description,startdate,newname,customdateformat):
+    manager.changeHabitByName(name,frequency,description,startdate,newname,customdateformat)
 
 if __name__=='__main__':
     habitShell()

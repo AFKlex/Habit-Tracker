@@ -1,58 +1,9 @@
 [
     {
-        "name": "AAAAAAAAAA",
-        "frequency": "daily",
-        "description": "",
-        "checkDates": [],
-        "startDate": "2025-03-03"
-    },
-    {
-        "name": "AAAAAAAA",
-        "frequency": "daily",
-        "description": "",
-        "checkDates": [],
-        "startDate": "2025-03-03"
-    },
-    {
-        "name": "AAAAAB",
-        "frequency": "daily",
-        "description": "",
-        "checkDates": [],
-        "startDate": "2025-03-03"
-    },
-    {
-        "name": "AAAAAAA",
-        "frequency": "daily",
-        "description": "",
-        "checkDates": [],
-        "startDate": "2025-03-03"
-    },
-    {
-        "name": "A",
-        "frequency": "daily",
-        "description": "",
-        "checkDates": [],
-        "startDate": "2025-03-03"
-    },
-    {
-        "name": "A",
-        "frequency": "daily",
-        "description": "",
-        "checkDates": [],
-        "startDate": "2025-03-03"
-    },
-    {
         "name": "B",
         "frequency": "daily",
-        "description": "",
+        "description": "FuckOff",
         "checkDates": [],
-        "startDate": "2025-03-03"
-    },
-    {
-        "name": "A B",
-        "frequency": "daily",
-        "description": "",
-        "checkDates": [],
-        "startDate": "2025-03-03"
+        "startDate": "2025-03-04"
     }
 ]

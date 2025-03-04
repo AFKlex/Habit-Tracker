@@ -18,3 +18,21 @@ class habit:
             "checkDates":self.checkDates,
             "startDate":self.startDate.strftime("%Y-%m-%d")
         }
+    def setName(self,name:str):
+        self.name = name
+        return "Name set successfully"
+
+    def setFrequency(self,frequency:str):
+        if frequency == "weekly" or frequency == "daily":
+            self.Frequency = frequency
+            return "Frequency set Successfully"
+        else:
+            return "Frequency could not be set. Ensure that it is weekly or daily"
+
+    def setDescription(self,description:str):
+        self.description = description
+        return "Description set Successfully"
+
+    def setStartDate(self, startDate:datetime):
+        self.startDate= startDate
+
