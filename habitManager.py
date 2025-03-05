@@ -78,6 +78,20 @@ class habitManager():
         self.storeHabits()
         click.secho("Habit added successfully!",fg="green")
 
+    def deleteHabit(self,name:str):
+        removeStatus = False
+        for entry in self.habits:
+            if entry.name == name:
+                self.habits.remove(entry)
+                self.storeHabits()
+                removeStatus = True
+                break
+        if removeStatus:
+            click.secho("Habit removed successfully",fg="green")
+        else:
+            click.secho("Habit could not be found! Try checking the Name.",fg="red")
+
+
     def validateDate(self,date_string, date_format="%Y-%m-%d"):
         try:
             # Try to parse the date string according to the specified format

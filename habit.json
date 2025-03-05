@@ -5,5 +5,12 @@
         "description": "FuckOff",
         "checkDates": [],
         "startDate": "2025-03-04"
+    },
+    {
+        "name": "BC",
+        "frequency": "daily",
+        "description": "",
+        "checkDates": [],
+        "startDate": "2025-03-05"
     }
 ]

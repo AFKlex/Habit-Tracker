@@ -36,5 +36,10 @@ def createHabit(name,frequency,description,startdate,customdateformat):
 def changeHabit(name,frequency,description,startdate,newname,customdateformat):
     manager.changeHabitByName(name,frequency,description,startdate,newname,customdateformat)
 
+@habitShell.command()
+@click.option('-n', '--name', required=True, help="Provide the name for the habit to delete.")
+def deleteHabit(name):
+    manager.deleteHabit(name)
+
 if __name__=='__main__':
     habitShell()
