@@ -15,7 +15,7 @@ def habitShell():
 @habitShell.command()
 @click.option('-f','--frequency',required=False, default="all", show_default=True,type=click.Choice(["weekly","daily","all"],case_sensitive=False) ,help="Provide a Filter for the frequency of Habits to get.")
 def getHabits(frequency):
-    manager.getHabits(frequency)
+    manager.get_habits(frequency)
 
 @habitShell.command()
 @click.option('-n', '--name', required=True, help="Provide the Name for the newly created habit.")
@@ -24,7 +24,7 @@ def getHabits(frequency):
 @click.option('-s', '--startdate', required=False, default=str(today.strftime("%Y-%m-%d")), help ="Provide a Start Date for the Habit.")
 @click.option('--customDateFormat', required=False, default="%Y-%m-%d", help="Provide a Custom Date formate to add a Date (default: %Y-%m-%d)")
 def createHabit(name,frequency,description,startdate,customdateformat):
-    manager.createHabit(name,frequency,description,manager.validateDate(startdate,customdateformat))
+    manager.create_habit(name,frequency,description,manager.validate_date(startdate,customdateformat))
 
 @habitShell.command()
 @click.option('-n', '--name', required=True, help="Provide the Name for the habit to change.")
@@ -34,12 +34,12 @@ def createHabit(name,frequency,description,startdate,customdateformat):
 @click.option('-N', '--newName', required=False, default=None, help="Change the name of a Habit")
 @click.option('--customDateFormat', required=False, default="%Y-%m-%d", help="Provide a Custom Date formate to add a Date (default: %Y-%m-%d)")
 def changeHabit(name,frequency,description,startdate,newname,customdateformat):
-    manager.changeHabitByName(name,frequency,description,startdate,newname,customdateformat)
+    manager.change_habit_by_name(name,frequency,description,startdate,newname,customdateformat)
 
 @habitShell.command()
 @click.option('-n', '--name', required=True, help="Provide the name for the habit to delete.")
 def deleteHabit(name):
-    manager.deleteHabit(name)
+    manager.delete_habit(name)
 
 if __name__=='__main__':
     habitShell()

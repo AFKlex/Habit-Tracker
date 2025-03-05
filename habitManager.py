@@ -4,13 +4,13 @@ from datetime import datetime
 import click
 class habitManager():
     habits = []
-    filePath = "habit.json"
+    file_Path = "habit.json"
     def __init__(self):
-        self.loadSavedHabits()
+        self.load_saved_habits()
 
-    def loadSavedHabits(self):
+    def load_saved_habits(self):
         try:
-            with open(self.filePath, 'r') as file:
+            with open(self.file_Path, 'r') as file:
                 data = json.load(file)  # Load the entire JSON content
 
             # Ensure the "habits" key exists
@@ -22,77 +22,75 @@ class habitManager():
                     entry["name"],
                     entry["frequency"],
                     entry["description"],
-                    entry["checkDates"],
-                    self.validateDate(entry["startDate"],"%Y-%m-%d")
+                    entry["check_dates"],
+                    self.validate_date(entry["start_date"],"%Y-%m-%d")
                 )
                 for entry in habits_list
             ]
 
-            #print(self.habits)  # Debugging
 
         except (FileNotFoundError, json.JSONDecodeError) as e:
             click.secho(f"Error loading habits: {e}\nA new habit.json will be created instead!",fg="red")
 
-    def getHabits(self, frequency:str):
+    def get_habits(self, frequency:str):
         for entry in self.habits:
-            #print(f"frequency {frequency} entry.freqency {entry.frequency}")
             if frequency == entry.frequency or frequency == "all":
                 click.secho(entry,fg="blue")
 
-    def changeHabitByName(self,name:str,frequency:str,description:str,startDate:datetime,newName,customDateFormat):
+    def change_habit_by_name(self,name:str,frequency:str,description:str,start_date:datetime,new_name,custom_date_format):
         for entry in self.habits:
             if entry.name == name:
                 if frequency != None:
-                    entry.setFrequency(frequency)
+                    entry.set_frequency(frequency)
 
                 if description != None:
-                    entry.setDescription(description)
+                    entry.set_description(description)
 
-                if startDate != None:
-                    entry.setStartDate(self.validateDate(startDate,customDateFormat))
+                if start_date != None:
+                    entry.set_start_date(self.validate_date(start_date,custom_date_format))
 
-                if newName != None:
-                    entry.setName(newName)
-                self.storeHabits()
+                if new_name != None:
+                    entry.set_name(new_name)
+                self.store_habits()
                 break
 
 
-    def storeHabits(self):
-        habitJsonData = []
+    def store_habits(self):
+        habit_json_data = []
         for entry in self.habits:
-            habitJsonData.append(entry.asDict())
-        #print(habitJsonData)
-        with open(self.filePath,'w') as fp:
-            json.dump(habitJsonData,fp,indent =4)
+            habit_json_data.append(entry.as_dict())
 
-    def createHabit(self,name:str, frequency:str, description:str, startDate:str):
-        newHabit = habit(name,frequency,description,[],startDate)
+        with open(self.file_Path,'w') as fp:
+            json.dump(habit_json_data,fp,indent =4)
+
+    def create_habit(self,name:str, frequency:str, description:str, start_date:str):
+        new_habit = habit(name,frequency,description,[],start_date)
 
         # Check if habit with a same name already exist in the list 
         for entry in self.habits:
-            if entry.name == newHabit.name:
-                click.secho(f'"{newHabit.name}" already exist in habit list, try alter the name or modify the existing habit!',fg="red")
+            if entry.name == new_habit.name:
+                click.secho(f'"{new_habit.name}" already exist in habit list, try alter the name or modify the existing habit!',fg="red")
                 return 1
 
-        self.habits.append(newHabit)
-        self.storeHabits()
+        self.habits.append(new_habit)
+        self.store_habits()
         click.secho("Habit added successfully!",fg="green")
 
-    def deleteHabit(self,name:str):
-        removeStatus = False
+    def delete_habit(self,name:str):
+        remove_status = False
         for entry in self.habits:
             if entry.name == name:
                 self.habits.remove(entry)
-                self.storeHabits()
-                removeStatus = True
+                self.store_habits()
+                remove_status = True
                 break
-        if removeStatus:
+        if remove_status:
             click.secho("Habit removed successfully",fg="green")
         else:
             click.secho("Habit could not be found! Try checking the Name.",fg="red")
 
 
-    def validateDate(self,date_string, date_format="%Y-%m-%d"):
+    def validate_date(self,date_string, date_format="%Y-%m-%d"):
         try:
             # Try to parse the date string according to the specified format
             parsed_date = datetime.strptime(date_string, date_format)

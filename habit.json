@@ -1,16 +1,9 @@
 [
     {
-        "name": "B",
-        "frequency": "daily",
-        "description": "FuckOff",
-        "checkDates": [],
-        "startDate": "2025-03-04"
-    },
-    {
-        "name": "BC",
+        "name": "A",
         "frequency": "daily",
         "description": "",
-        "checkDates": [],
-        "startDate": "2025-03-05"
+        "check_dates": [],
+        "start_date": "2025-03-05"
     }
 ]
