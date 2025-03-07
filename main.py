@@ -1,3 +1,4 @@
+#!./venv3/bin/python3
 import click
 from click_shell import shell
 from habitManager import *
@@ -40,6 +41,10 @@ def changeHabit(name,frequency,description,startdate,newname,customdateformat):
 @click.option('-n', '--name', required=True, help="Provide the name for the habit to delete.")
 def deleteHabit(name):
     manager.delete_habit(name)
+
+@habitShell.command()
+def deleteAllHabit():
+    manager.delete_all_habit()
 
 if __name__=='__main__':
     habitShell()

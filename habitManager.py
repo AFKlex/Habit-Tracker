@@ -41,16 +41,16 @@ class habitManager():
         for entry in self.habits:
             if entry.name == name:
                 if frequency != None:
-                    entry.set_frequency(frequency)
+                   click.secho(entry.set_frequency(frequency),fg="bright_black")
 
                 if description != None:
-                    entry.set_description(description)
+                    click.secho(entry.set_description(description),fg="bright_black")
 
                 if start_date != None:
-                    entry.set_start_date(self.validate_date(start_date,custom_date_format))
+                    click.secho(entry.set_start_date(self.validate_date(start_date,custom_date_format)),fg="bright_black")
 
                 if new_name != None:
-                    entry.set_name(new_name)
+                    click.secho(entry.set_name(new_name),fg="bright_black")
                 self.store_habits()
                 break
 
@@ -89,6 +89,9 @@ class habitManager():
         else:
             click.secho("Habit could not be found! Try checking the Name.",fg="red")
 
+    def delete_all_habit(self):
+        self.habits = []
+        self.store_habits()
 
     def validate_date(self,date_string, date_format="%Y-%m-%d"):
         try:
