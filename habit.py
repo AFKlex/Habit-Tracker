@@ -39,3 +39,10 @@ class habit:
     def add_check(self, check_date):
         check_date = check_date.strftime("%Y-%m-%d")
         self.check_dates.append(check_date)
+        return f"{check_date} successfully check"
+
+    def delete_check(self,  delete_date):
+        delete_date = delete_date.strftime("%Y-%m-%d")
+        self.check_dates.remove(delete_date)
+        return f"{delete_date} sucessfully removed from check"
+

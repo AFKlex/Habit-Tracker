@@ -106,8 +106,17 @@ class habitManager():
     def check_habit(self,name, date,custom_date_format):
         for entry in self.habits:
             if entry.name == name:
-                entry.add_check(self.validate_date(date,custom_date_format))
+                result = entry.add_check(self.validate_date(date,custom_date_format))
+                click.secho(result,fg="bright_black")
                 #print(entry)
                 #print(entry.as_dict())
+                self.store_habits()
+                break
+
+    def delete_check(self,name,date,custom_date_format):
+        for entry in self.habits:
+            if entry.name == name:
+                result = entry.delete_check(self.validate_date(date,custom_date_format))
+                click.secho(result, fg="bright_black")
                 self.store_habits()
                 break

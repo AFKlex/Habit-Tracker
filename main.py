@@ -53,6 +53,12 @@ def deleteAllHabit():
 def checkHabit(name,date,customdateformat):
     manager.check_habit(name,date,customdateformat)
 
+@habitShell.command()
+@click.option('-n', '--name', required=True, help="Provide the Name for the habit to check.")
+@click.option('-d', '--date', required=False, default=str(today.strftime("%Y-%m-%d")), help ="Change the date of the habit to check.")
+@click.option('--customDateFormat', required=False, default="%Y-%m-%d", help="Provide a Custom Date formate to add a Date (default: %Y-%m-%d)")
+def deletecheck(name,date,customdateformat):
+    manager.delete_check(name,date,customdateformat)
 
 if __name__=='__main__':
     habitShell()
