@@ -1,9 +1,13 @@
 [
     {
-        "name": "AA",
+        "name": "A\u00a7",
         "frequency": "daily",
         "description": "",
-        "check_dates": [],
-        "start_date": "2025-03-07"
+        "check_dates": [
+            "2025-03-08",
+            "2024-12-12",
+            "2025-01-01"
+        ],
+        "start_date": "2025-03-08"
     }
 ]

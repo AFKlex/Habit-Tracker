@@ -103,3 +103,11 @@ class habitManager():
             # If an exception occurs (invalid date), return None or handle accordingly
             return None
 
+    def check_habit(self,name, date,custom_date_format):
+        for entry in self.habits:
+            if entry.name == name:
+                entry.add_check(self.validate_date(date,custom_date_format))
+                #print(entry)
+                #print(entry.as_dict())
+                self.store_habits()
+                break

@@ -8,14 +8,14 @@ class habit:
         self.check_dates =  check_dates
         self.start_date = start_date
     def __str__(self):
-        return f"Name: {self.name} \n\t- frequency: {self.frequency}\n\t- {self.description}\n\t- {self.start_date}\n\t- {self.check_dates}\n"
+        return f"Name: {self.name} \n\t- frequency: {self.frequency}\n\t- {self.description}\n\t- {self.start_date.strftime('%Y-%m-%d')}\n\t- {self.check_dates}\n"
 
     def as_dict(self):
         return {
             "name":self.name,
             "frequency":self.frequency,
             "description":self.description,
-            "check_dates":self.check_dates,
+            "check_dates": self.check_dates,
             "start_date":self.start_date.strftime("%Y-%m-%d")
         }
     def set_name(self,name:str):
@@ -36,3 +36,6 @@ class habit:
     def set_start_date(self, start_date:datetime):
         self.start_date= start_date
 
+    def add_check(self, check_date):
+        check_date = check_date.strftime("%Y-%m-%d")
+        self.check_dates.append(check_date)

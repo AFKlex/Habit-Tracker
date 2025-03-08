@@ -46,5 +46,13 @@ def deleteHabit(name):
 def deleteAllHabit():
     manager.delete_all_habit()
 
+@habitShell.command()
+@click.option('-n', '--name', required=True, help="Provide the Name for the habit to check.")
+@click.option('-d', '--date', required=False, default=str(today.strftime("%Y-%m-%d")), help ="Change the date of the habit to check.")
+@click.option('--customDateFormat', required=False, default="%Y-%m-%d", help="Provide a Custom Date formate to add a Date (default: %Y-%m-%d)")
+def checkHabit(name,date,customdateformat):
+    manager.check_habit(name,date,customdateformat)
+
+
 if __name__=='__main__':
     habitShell()
