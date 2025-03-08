@@ -38,6 +38,8 @@ class habit:
 
     def add_check(self, check_date):
         check_date = check_date.strftime("%Y-%m-%d")
+        if check_date in self.check_dates:
+            return f"{check_date} is already checked."
         self.check_dates.append(check_date)
         return f"{check_date} successfully check"
 
