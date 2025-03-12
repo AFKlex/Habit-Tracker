@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+import timedelta
 class habit:
     def __init__(self,name, frequency, description, check_dates,start_date:datetime):
         self.name = name.strip()
@@ -48,3 +49,30 @@ class habit:
         self.check_dates.remove(delete_date)
         return f"{delete_date} sucessfully removed from check"
 
+    def longest_streak(self):
+        dates = [datetime.strptime(date,"%Y-%m-%d")for date in self.check_dates] #Convert to Dates
+        dates = sorted(dates) # Sort Dates 
+        longest_streak =0
+        current_streak =1
+
+        if self.frequency == "daily":
+            timedelta = 1 # Daily Delta
+        else:
+            timedelta = 7 # Weekly Delta 
+
+        for i in range(len(dates)-1): # Loop all Dates
+            current_date = dates[i]
+            next_date = dates[i+1]
+
+            if (next_date - current_date).days <= timedelta: # Check if the timedelta is within the valid delta
+                current_streak +=1
+                #print(f"{current_date.strftime('%Y-%m-%d')} is followed by {next_date.strftime('%Y-%m-%d')}")
+            else:
+                if current_streak > longest_streak:
+                    longest_streak = current_streak
+                current_streak =1
+
+        if current_streak > longest_streak:
+            longest_streak = current_streak
+
+        return f"Habit {self.name} has the frequency {self.frequency} and its longest streak is {longest_streak}"

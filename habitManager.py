@@ -120,3 +120,13 @@ class habitManager():
                 click.secho(result, fg="bright_black")
                 self.store_habits()
                 break
+
+    def get_longest_streak(self, name):
+        if name is None:
+            for entry in self.habits:
+                click.secho(entry.longest_streak(),fg="green")
+        else:
+            for entry in self.habits:
+                if entry.name == name:
+                    click.secho(entry.longest_streak(),fg="green")
+                    break

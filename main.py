@@ -60,5 +60,10 @@ def checkHabit(name,date,customdateformat):
 def deletecheck(name,date,customdateformat):
     manager.delete_check(name,date,customdateformat)
 
+@habitShell.command()
+@click.option('-n', '--name', required=False, default=None, help="Provide the Name to check the longest streak for a single Habit.")
+def getLongestStreak(name):
+    manager.get_longest_streak(name)
+
 if __name__=='__main__':
     habitShell()
