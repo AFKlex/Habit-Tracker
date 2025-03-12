@@ -32,8 +32,37 @@
         "check_dates": [
             "2025-03-12",
             "2025-03-05",
-            "2025-03-17"
+            "2025-03-17",
+            "2025-01-12"
         ],
+        "start_date": "2025-03-12"
+    },
+    {
+        "name": "D",
+        "frequency": "daily",
+        "description": "",
+        "check_dates": [],
+        "start_date": "2025-03-12"
+    },
+    {
+        "name": "E",
+        "frequency": "daily",
+        "description": "",
+        "check_dates": [],
+        "start_date": "2025-03-12"
+    },
+    {
+        "name": "F",
+        "frequency": "daily",
+        "description": "",
+        "check_dates": [],
+        "start_date": "2025-03-12"
+    },
+    {
+        "name": "G",
+        "frequency": "daily",
+        "description": "",
+        "check_dates": [],
         "start_date": "2025-03-12"
     }
 ]

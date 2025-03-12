@@ -66,15 +66,14 @@ class habitManager():
     def create_habit(self,name:str, frequency:str, description:str, start_date:str):
         new_habit = habit(name,frequency,description,[],start_date)
 
+        print(new_habit)
         # Check if habit with a same name already exist in the list 
         for entry in self.habits:
             if entry.name == new_habit.name:
-                click.secho(f'"{new_habit.name}" already exist in habit list, try alter the name or modify the existing habit!',fg="red")
-                return 1
-
+                return -1 
         self.habits.append(new_habit)
         self.store_habits()
-        click.secho("Habit added successfully!",fg="green")
+        return 0 
 
     def delete_habit(self,name:str):
         remove_status = False

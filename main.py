@@ -8,7 +8,6 @@ from datetime import date
 manager = habitManager()
 today= date.today()
 
-
 @shell(prompt='Habit >', intro='Welcome to simple Habit Shell!')
 def habitShell():
     pass
@@ -25,7 +24,12 @@ def getHabits(frequency):
 @click.option('-s', '--startdate', required=False, default=str(today.strftime("%Y-%m-%d")), help ="Provide a Start Date for the Habit.")
 @click.option('--customDateFormat', required=False, default="%Y-%m-%d", help="Provide a Custom Date formate to add a Date (default: %Y-%m-%d)")
 def createHabit(name,frequency,description,startdate,customdateformat):
-    manager.create_habit(name,frequency,description,manager.validate_date(startdate,customdateformat))
+    status = manager.create_habit(name,frequency,description,manager.validate_date(startdate,customdateformat))
+
+    if status == 0:
+        click.secho("Habit added successfully!",fg="green")
+    else:
+        click.secho(f'"{name}" already exist in habit list, try alter the name or modify the existing habit!', fg="red")
 
 @habitShell.command()
 @click.option('-n', '--name', required=True, help="Provide the Name for the habit to change.")
