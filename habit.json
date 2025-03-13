@@ -38,13 +38,6 @@
         "start_date": "2025-03-12"
     },
     {
-        "name": "D",
-        "frequency": "daily",
-        "description": "",
-        "check_dates": [],
-        "start_date": "2025-03-12"
-    },
-    {
         "name": "E",
         "frequency": "daily",
         "description": "",

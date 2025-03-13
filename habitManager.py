@@ -28,9 +28,9 @@ class habitManager():
                 for entry in habits_list
             ]
 
-
         except (FileNotFoundError, json.JSONDecodeError) as e:
             click.secho(f"Error loading habits: {e}\nA new habit.json will be created instead!",fg="red")
+
 
     def get_habits(self, frequency:str):
         for entry in self.habits:
@@ -70,10 +70,12 @@ class habitManager():
         # Check if habit with a same name already exist in the list 
         for entry in self.habits:
             if entry.name == new_habit.name:
-                return -1 
+                click.secho(f'"{name}" already exist in habit list, try alter the name or modify the existing habit!', fg="red")
+                return None
+
         self.habits.append(new_habit)
         self.store_habits()
-        return 0 
+        click.secho("Habit added successfully!",fg="green")
 
     def delete_habit(self,name:str):
         remove_status = False

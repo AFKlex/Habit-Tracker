@@ -26,11 +26,6 @@ def getHabits(frequency):
 def createHabit(name,frequency,description,startdate,customdateformat):
     status = manager.create_habit(name,frequency,description,manager.validate_date(startdate,customdateformat))
 
-    if status == 0:
-        click.secho("Habit added successfully!",fg="green")
-    else:
-        click.secho(f'"{name}" already exist in habit list, try alter the name or modify the existing habit!', fg="red")
-
 @habitShell.command()
 @click.option('-n', '--name', required=True, help="Provide the Name for the habit to change.")
 @click.option('-f','--frequency',required=False, default=None, show_default=True,type=click.Choice(["weekly","daily"],case_sensitive=False) ,help="Change the frequency of the habit.")
