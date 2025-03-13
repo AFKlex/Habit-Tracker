@@ -1,5 +1,4 @@
 #!./venv3/bin/python3
-from os import wait
 import click
 from click_shell import shell
 from habitManager import *
