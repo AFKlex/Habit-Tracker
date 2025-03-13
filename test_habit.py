@@ -33,5 +33,5 @@ def test_delete_check():
 def test_longest_streak():
     habit1 = habit("Exercise", "daily", "Morning workout", ["2023-01-01", "2023-01-02", "2023-01-03"], datetime(2023, 1, 1))
     result = habit1.longest_streak()
-    assert result == "Habit Exercise has the frequency daily and its longest streak is 3"
+    assert result == "Exercise has the frequency daily and its longest streak is 3"
 
