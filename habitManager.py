@@ -2,11 +2,12 @@ import json
 from habit import *
 from datetime import datetime
 import click
+
 class habitManager():
     habits = []
     file_Path = "habit.json"
-    def __init__(self):
-        self.load_saved_habits()
+    #def __init__(self):
+    #    self.load_saved_habits()
 
     def load_saved_habits(self):
         try:
@@ -27,32 +28,50 @@ class habitManager():
                 )
                 for entry in habits_list
             ]
+            return None
 
-        except (FileNotFoundError, json.JSONDecodeError) as e:
-            click.secho(f"Error loading habits: {e}\nA new habit.json will be created instead!",fg="red")
+        except FileNotFoundError as e:
+            error_message = f"Error loading habits: {e}\nA new habit.json will be created instead!"
+            return error_message
+
+        except json.JSONDecodeError as e:
+            error_message = f"Error decoding habits file: {e}"
+            return error_message
+
+        except Exception as e:
+            error_message = f"Unexpected error: {e}"
+            return error_message
 
 
     def get_habits(self, frequency:str):
+        value = []
         for entry in self.habits:
             if frequency == entry.frequency or frequency == "all":
-                click.secho(entry,fg="blue")
+                value.append(entry)
+        return value       
 
     def change_habit_by_name(self,name:str,frequency:str,description:str,start_date:datetime,new_name,custom_date_format):
+        changes = {}
         for entry in self.habits:
             if entry.name == name:
                 if frequency != None:
-                   click.secho(entry.set_frequency(frequency),fg="bright_black")
+                    changes["frequency"] = {"old":entry.frequency, "new": frequency}
+                    entry.set_frequency(frequency)
 
                 if description != None:
-                    click.secho(entry.set_description(description),fg="bright_black")
+                    changes["description"] = {"old":entry.description, "new":description}
+                    entry.set_description(description)
 
                 if start_date != None:
-                    click.secho(entry.set_start_date(self.validate_date(start_date,custom_date_format)),fg="bright_black")
+                    changes["start_date"]= {"old":entry.start_date, "new":start_date}
+                    entry.set_start_date(self.validate_date(start_date,custom_date_format))
 
                 if new_name != None:
-                    click.secho(entry.set_name(new_name),fg="bright_black")
+                    changes["name"] = {"old":entry.name, "new":new_name}
+                    entry.set_name(new_name)
                 self.store_habits()
-                break
+                return changes
+        return None
 
 
     def store_habits(self):
@@ -66,16 +85,14 @@ class habitManager():
     def create_habit(self,name:str, frequency:str, description:str, start_date:str):
         new_habit = habit(name,frequency,description,[],start_date)
 
-        print(new_habit)
         # Check if habit with a same name already exist in the list 
         for entry in self.habits:
             if entry.name == new_habit.name:
-                click.secho(f'"{name}" already exist in habit list, try alter the name or modify the existing habit!', fg="red")
                 return None
 
         self.habits.append(new_habit)
         self.store_habits()
-        click.secho("Habit added successfully!",fg="green")
+        return new_habit
 
     def delete_habit(self,name:str):
         remove_status = False
@@ -85,14 +102,12 @@ class habitManager():
                 self.store_habits()
                 remove_status = True
                 break
-        if remove_status:
-            click.secho("Habit removed successfully",fg="green")
-        else:
-            click.secho("Habit could not be found! Try checking the Name.",fg="red")
+        return remove_status
 
     def delete_all_habit(self):
         self.habits = []
         self.store_habits()
+        return "All habits deleted"
 
     def validate_date(self,date_string, date_format="%Y-%m-%d"):
         try:
@@ -108,26 +123,23 @@ class habitManager():
         for entry in self.habits:
             if entry.name == name:
                 result = entry.add_check(self.validate_date(date,custom_date_format))
-                click.secho(result,fg="bright_black")
-                #print(entry)
-                #print(entry.as_dict())
                 self.store_habits()
-                break
+                return result
 
     def delete_check(self,name,date,custom_date_format):
         for entry in self.habits:
             if entry.name == name:
                 result = entry.delete_check(self.validate_date(date,custom_date_format))
-                click.secho(result, fg="bright_black")
                 self.store_habits()
-                break
+                return result 
 
     def get_longest_streak(self, name):
+        data_to_return = []
         if name is None:
             for entry in self.habits:
-                click.secho(entry.longest_streak(),fg="green")
+                data_to_return.append(entry.longest_streak())
         else:
             for entry in self.habits:
                 if entry.name == name:
-                    click.secho(entry.longest_streak(),fg="green")
-                    break
+                    data_to_return.append(entry.longest_streak())
+        return data_to_return
