@@ -1,6 +1,6 @@
 import json
 from datetime import datetime
-import timedelta
+
 class habit:
     def __init__(self,name, frequency, description, check_dates,start_date:datetime):
         self.name = name.strip()
@@ -37,7 +37,7 @@ class habit:
     def set_start_date(self, start_date:datetime):
         self.start_date= start_date
 
-    def add_check(self, check_date):
+    def add_check(self, check_date:datetime):
         check_date = check_date.strftime("%Y-%m-%d")
         if check_date in self.check_dates:
             return f"{check_date} is already checked."
@@ -75,4 +75,4 @@ class habit:
         if current_streak > longest_streak:
             longest_streak = current_streak
 
-        return f"Habit {self.name} has the frequency {self.frequency} and its longest streak is {longest_streak}"
+        return f"{self.name} has the frequency {self.frequency} and its longest streak is {longest_streak}"
