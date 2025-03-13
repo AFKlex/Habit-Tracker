@@ -1,63 +1,148 @@
 [
     {
-        "name": "A",
+        "name": "Morning Exercise",
         "frequency": "daily",
-        "description": "",
+        "description": "A short workout or stretching routine to start the day with energy.",
         "check_dates": [
             "2025-03-08",
-            "2025-03-07",
-            "2025-03-05",
-            "2025-03-04",
-            "2025-03-03",
-            "2024-01-01",
-            "2026-01-01"
+            "2025-03-09",
+            "2025-03-10",
+            "2025-03-11",
+            "2025-03-12",
+            "2025-03-13",
+            "2025-03-14",
+            "2025-03-15",
+            "2025-03-16",
+            "2025-03-17"
         ],
         "start_date": "2025-03-08"
     },
     {
-        "name": "B",
+        "name": "Read a Book",
         "frequency": "daily",
-        "description": "",
+        "description": "Spend at least 20 minutes reading a book to develop knowledge and relaxation.",
         "check_dates": [
-            "2025-02-07",
             "2025-03-08",
-            "2025-02-08"
+            "2025-03-09",
+            "2025-03-10",
+            "2025-03-11",
+            "2025-03-12",
+            "2025-03-13",
+            "2025-03-14",
+            "2025-03-15",
+            "2025-03-16",
+            "2025-03-17"
         ],
         "start_date": "2025-03-08"
     },
     {
-        "name": "C",
+        "name": "Drink Enough Water",
+        "frequency": "daily",
+        "description": "Ensure adequate hydration by drinking at least 2 liters of water each day.",
+        "check_dates": [
+            "2025-03-08",
+            "2025-03-09",
+            "2025-03-10",
+            "2025-03-11",
+            "2025-03-12",
+            "2025-03-13",
+            "2025-03-14",
+            "2025-03-15",
+            "2025-03-16",
+            "2025-03-17"
+        ],
+        "start_date": "2025-03-08"
+    },
+    {
+        "name": "Daily Journal",
+        "frequency": "daily",
+        "description": "Write down thoughts, experiences, and reflections to track personal growth.",
+        "check_dates": [
+            "2025-03-08",
+            "2025-03-09",
+            "2025-03-10",
+            "2025-03-11",
+            "2025-03-12",
+            "2025-03-13",
+            "2025-03-14",
+            "2025-03-15",
+            "2025-03-16",
+            "2025-03-17"
+        ],
+        "start_date": "2025-03-08"
+    },
+    {
+        "name": "Meditation",
+        "frequency": "daily",
+        "description": "Practice mindfulness or meditation to reduce stress and increase focus.",
+        "check_dates": [
+            "2025-03-08",
+            "2025-03-09",
+            "2025-03-10",
+            "2025-03-11",
+            "2025-03-12",
+            "2025-03-13",
+            "2025-03-14",
+            "2025-03-15",
+            "2025-03-16",
+            "2025-03-17"
+        ],
+        "start_date": "2025-03-08"
+    },
+    {
+        "name": "Grocery Shopping",
         "frequency": "weekly",
-        "description": "",
+        "description": "Plan and buy necessary groceries for the week ahead.",
         "check_dates": [
             "2025-03-12",
-            "2025-03-05",
-            "2025-03-17",
-            "2025-01-12"
+            "2025-03-19",
+            "2025-03-26"
         ],
         "start_date": "2025-03-12"
     },
     {
-        "name": "E",
-        "frequency": "daily",
-        "description": "",
-        "check_dates": [],
-        "start_date": "2025-03-12"
-    },
-    {
-        "name": "F",
-        "frequency": "daily",
-        "description": "",
-        "check_dates": [],
-        "start_date": "2025-03-12"
-    },
-    {
-        "name": "D",
-        "frequency": "daily",
-        "description": "",
+        "name": "Call a Friend or Family Member",
+        "frequency": "weekly",
+        "description": "Maintain social connections by calling a loved one once a week.",
         "check_dates": [
-            "2025-03-13"
+            "2025-03-10",
+            "2025-03-17",
+            "2025-03-24"
         ],
-        "start_date": "2025-03-13"
+        "start_date": "2025-03-10"
+    },
+    {
+        "name": "Declutter a Space",
+        "frequency": "weekly",
+        "description": "Spend time organizing and decluttering an area of the home.",
+        "check_dates": [
+            "2025-03-11",
+            "2025-03-18",
+            "2025-03-25"
+        ],
+        "start_date": "2025-03-11"
+    },
+    {
+        "name": "Go for a Walk in Nature",
+        "frequency": "weekly",
+        "description": "Spend time outdoors, walking in a park or nature area to relax and refresh the mind.",
+        "check_dates": [
+            "2025-03-09",
+            "2025-03-16",
+            "2025-03-23"
+        ],
+        "start_date": "2025-03-09"
+    },
+    {
+        "name": "Try a New Recipe",
+        "frequency": "weekly",
+        "description": "Experiment with a new recipe to improve cooking skills and add variety to meals.",
+        "check_dates": [
+            "2025-03-08",
+            "2025-03-15",
+            "2025-03-22"
+        ],
+        "start_date": "2025-03-08"
     }
 ]
+
