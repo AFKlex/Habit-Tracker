@@ -1,6 +1,4 @@
 import pytest
-from datetime import datetime
-from habit import habit
 from habitManager import habitManager
 
 # Fixture to create a fresh instance of habitManager for each test

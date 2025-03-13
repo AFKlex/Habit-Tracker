@@ -52,10 +52,12 @@
         "start_date": "2025-03-12"
     },
     {
-        "name": "G",
+        "name": "D",
         "frequency": "daily",
         "description": "",
-        "check_dates": [],
-        "start_date": "2025-03-12"
+        "check_dates": [
+            "2025-03-13"
+        ],
+        "start_date": "2025-03-13"
     }
 ]
