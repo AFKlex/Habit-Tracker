@@ -4,18 +4,19 @@ from datetime import datetime
 import click
 
 class habitManager():
+    """ This class manages is used to mange multiple habits. 
+    It works as the main logic of the program.  
+    """
     habits = []
     file_Path = "habit.json"
     #def __init__(self):
     #    self.load_saved_habits()
 
     def load_saved_habits(self):
+        """This function loads all habits from a json file and create habit objects of the json data."""
         try:
             with open(self.file_Path, 'r') as file:
-                data = json.load(file)  # Load the entire JSON content
-
-            # Ensure the "habits" key exists
-            habits_list = data
+                habits_list = json.load(file)  # Load the entire JSON content
 
             # Initialize self.habits
             self.habits = [
@@ -44,6 +45,7 @@ class habitManager():
 
 
     def get_habits(self, frequency:str):
+        """This function gets the data for all habits that are stored in the habits manager and returns it to the caller."""
         value = []
         for entry in self.habits:
             if frequency == entry.frequency or frequency == "all":
@@ -51,6 +53,14 @@ class habitManager():
         return value       
 
     def change_habit_by_name(self,name:str,frequency:str,description:str,start_date:datetime,new_name,custom_date_format):
+        """This functions allows to change a habit. 
+
+        Hint: 
+            1. In order to work the habit needs to be fined by the name.
+            2. Everything that is be changed will be added entry in a dict. 
+            3. This dict will be returned while the manger also holds the changed habits.
+
+        """
         changes = {}
         for entry in self.habits:
             if entry.name == name:
@@ -75,6 +85,7 @@ class habitManager():
 
 
     def store_habits(self):
+        """This function stores all habits in a json file."""
         habit_json_data = []
         for entry in self.habits:
             habit_json_data.append(entry.as_dict())
@@ -83,6 +94,11 @@ class habitManager():
             json.dump(habit_json_data,fp,indent =4)
 
     def create_habit(self,name:str, frequency:str, description:str, start_date:str):
+        """This function allows us to create a habit. 
+
+        Hint:
+            1. Here it also ensured, that a name only occours once in the list of all arrays.  
+        """
         new_habit = habit(name,frequency,description,[],start_date)
 
         # Check if habit with a same name already exist in the list 
@@ -95,6 +111,7 @@ class habitManager():
         return new_habit
 
     def delete_habit(self,name:str):
+        """ This function deletes a habit by the name."""
         remove_status = False
         for entry in self.habits:
             if entry.name == name:
@@ -105,11 +122,13 @@ class habitManager():
         return remove_status
 
     def delete_all_habit(self):
+        """This function deletes all habits in the habit manager"""
         self.habits = []
         self.store_habits()
         return "All habits deleted"
 
     def validate_date(self,date_string, date_format="%Y-%m-%d"):
+        """ This function is used to validate if a date is a valid and defined format."""
         try:
             # Try to parse the date string according to the specified format
             parsed_date = datetime.strptime(date_string, date_format)
@@ -120,6 +139,7 @@ class habitManager():
             return None
 
     def check_habit(self,name, date,custom_date_format):
+        """ This function checks a habit by name"""
         for entry in self.habits:
             if entry.name == name:
                 result = entry.add_check(self.validate_date(date,custom_date_format))
@@ -127,6 +147,7 @@ class habitManager():
                 return result
 
     def delete_check(self,name,date,custom_date_format):
+        """ This function deletes a check for a defined habit"""
         for entry in self.habits:
             if entry.name == name:
                 result = entry.delete_check(self.validate_date(date,custom_date_format))
@@ -134,6 +155,7 @@ class habitManager():
                 return result 
 
     def get_longest_streak(self, name):
+        """ This function gets the longest streak for a defined habit or all habits"""
         data_to_return = []
         if name is None:
             for entry in self.habits:
