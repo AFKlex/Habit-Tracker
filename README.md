@@ -1,6 +1,3 @@
-
-This documentation provides an overview of the Habit Management CLI commands available for interacting with the habit manager. Each command allows the user to manage habits (create, modify, check, or delete) with the flexibility to adjust various parameters.
-
 ## Commands Overview:
 
 ### 1. **getHabits**
