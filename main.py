@@ -93,7 +93,12 @@ def deleteHabit(name):
 @habitShell.command()
 def deleteAllHabit():
     """Delete all habits.
-    
+
+    ___________________________________________________________________
+
+    Be careful this removes all stored habits! 
+    ___________________________________________________________________
+
     Hint:
         1. This function clears all stored habits.
     """
