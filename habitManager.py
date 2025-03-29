@@ -64,6 +64,7 @@ class habitManager():
         changes = {}
         for entry in self.habits:
             if entry.name == name:
+                # Check what was changed and change it in the attribute. 
                 if frequency != None:
                     changes["frequency"] = {"old":entry.frequency, "new": frequency}
                     entry.set_frequency(frequency)
