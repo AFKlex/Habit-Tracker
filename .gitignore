@@ -5,6 +5,7 @@ __pycache__/
 pyrightconfig.json
 # C extensions
 *.so
+venv3
 
 # Distribution / packaging
 .Python
