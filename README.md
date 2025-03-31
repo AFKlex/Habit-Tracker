@@ -1,5 +1,17 @@
-## Commands Overview:
+## Installation
 
+Clone and change into the repository. 
+```bash
+git clone https://github.com/AFKlex/Habit-Tracker.git
+cd Habit-Tracker
+```
+
+Now run the habit-tracker typing in the virutal python enviorment. 
+```bash 
+./venv3/bin/python3 main.py
+```
+
+## Commands Overview:
 ### 1. **getHabits**
 **Function:** Retrieve and display habits based on the frequency filter.
 
