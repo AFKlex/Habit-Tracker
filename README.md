@@ -1,9 +1,14 @@
 ## Installation
-
 Clone and change into the repository. 
 ```bash
 git clone https://github.com/AFKlex/Habit-Tracker.git
 cd Habit-Tracker
+```
+
+Create Virtual Enviorment: 
+```bash
+python3 -m venv venv3
+source venv3/bin/activate
 ```
 
 Now install requirements: 
@@ -13,7 +18,7 @@ pip install -r requirements.txt
 
 Now run the habit-tracker typing in the virutal python enviorment. 
 ```bash 
-./venv3/bin/python3 main.py
+python3 main.py
 ```
 
 ## Commands Overview:
