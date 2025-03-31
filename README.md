@@ -6,6 +6,11 @@ git clone https://github.com/AFKlex/Habit-Tracker.git
 cd Habit-Tracker
 ```
 
+Now install requirements: 
+```bash
+pip install -r requirements.txt
+```
+
 Now run the habit-tracker typing in the virutal python enviorment. 
 ```bash 
 ./venv3/bin/python3 main.py
